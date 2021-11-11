@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+
+<body>
+    <section class="container">
+        <section class="header">
+            <h1>Foundry Association of Michigan</h1>
+        </section>
+        
+        
+        <section class="row">
+        
+            <div class="leftSide col-xl-6">
+                <div class="title">City Aluminum</div>
+        
+                <div class="title" onclick="getDetails()">Tooling & Equipment International</div>
+                <div id="detailTab">
+                    <div id="alllines" class="display">
+                        <div class="line">
+                            <p class="items"><span style="font-weight: bold;">Foundy:</span> Yes</p>
+                            <p class="items"><span style="font-weight: bold;">Alloys:</span> Aluminum</p>
+                            <p class="items"><span style="font-weight: bold;">Processes:</span> Precision low pressure sand</p>
+                            <p class="items"><span style="font-weight: bold;">Other Services:</span> 3D printing, heat treat,
+                                and
+                                machining</p>
+                        </div>
+                        <div class="line">
+                            <p class="items"><span style="font-weight: bold;">Production:</span> Low vol < 10,000 pa</p>
+                                    <p class="items"><span style="font-weight: bold;">Prototype:</span> Yes</p>
+                                    <p class="items"><span style="font-weight: bold;">Products:</span> Auto & aero machined
+                                        prototypes /
+                                        low
+                                        volume production</p>
+                        </div>
+                        <div class="line">
+                            <p class="items"><span style="font-weight: bold;">Location:</span> Livonia</p>
+                            <p class="items"><span style="font-weight: bold;">Website:</span> <a
+                                    href="https://www.teintl.com">www.teintl.com</a></p>
+                        </div>
+                    </div>
+                </div>
+        
+                <div class="title">Eagle Alloys</div>
+                <div class="title">EJ</div>
+                <div class="title">ExOne</div>
+                <div class="title">Voxeljet</div>
+                <div class="title">Ask Chemicals</div>
+                <div class="title">Air & Water Compliance Group</div>
+                <div class="title">Anderson Global</div>
+                <div class="title">B&L Information Systems</div>
+                <div class="title">Benton Metal Recycling</div>
+                <div class="title">Betz Industries Inc.</div>
+                <div class="title">Brembo</div>
+                <div class="title">Cadillac Castings, Inc.</div>
+                <div class="title">Carpenter Brothers, Inc.</div>
+                <div class="title">Cimco Resources, Inc.</div>
+                <div class="title">City Aluminum Foundry Corporation</div>
+            </div>
+        
+        
+        
+            <div class="rightSide col-xl-6">
+                <div id="googleMap" style="width:100%;height:400px; position: relative; top: 100px;"></div>
+            </div>
+        
+        
+        </section>
+    </section>
+
+
+    
+    <script>
+        function myMap() {
+            var mapProp = {
+                center: new google.maps.LatLng(42.375610, -83.341450),
+                zoom: 8,
+            };
+            var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+        }
+    </script>
+    
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATLJMd0zYABTy_NGrnUtwZC0-LBlz1cms&callback=myMap"></script>
+
+
+</body>
+</html>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+
+
+    function getDetails() {
+        var tab = document.getElementById("detailTab");
+
+        if(tab.classList.contains("detailTab")) {
+            document.getElementById("detailTab").classList.remove("detailTab");
+            document.getElementById("alllines").style.animation = "disappear 0.5s both";
+
+            // Deplay displaying the content 
+            var detail = $('#alllines');
+            setTimeout(function () {
+                document.getElementById("alllines").classList.add("display");
+                document.getElementById("detailTab").style.animation = "shrink 0.5s both";
+            }, 250);
+        }
+        else{
+            document.getElementById("detailTab").classList.add("detailTab");
+            document.getElementById("detailTab").style.animation = "grow 0.5s both";
+
+            // Deplay displaying the content 
+            var detail = $('#alllines');
+            setTimeout(function () {
+                detail.removeClass('display');
+                document.getElementById("alllines").style.animation = "appear 0.5s both";
+            }, 250);
+        }
+    }
+
+
+</script>
